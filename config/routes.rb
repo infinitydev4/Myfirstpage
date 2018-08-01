@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#home'
 
-  root to: 'static_pages#home', as: 'home'
-  get '/about', to: 'static_pages#about', as: 'about'
-  get '/contact', to: 'static_pages#contact', as: 'contact'
-  get '/about_me', to: 'static_pages#about', as: 'about_me'
-  get '/about_us', to: 'static_pages#about', as: 'about_us'
+  get '/new_user', to:'users#new', as:'new'
+  post '/new_user', to:'users#create', as:'create'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/users/:name', to:'users#show'
+  get '/error',to:'static_pages#error', as:'error'
+  
+
 end
+
